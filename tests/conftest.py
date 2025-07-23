@@ -41,5 +41,28 @@ def large_image_path():
 @pytest.fixture
 def mock_api_key(monkeypatch):
     """Mock API key for testing."""
-    monkeypatch.setenv("INTERNVL_API_KEY", "test_api_key_12345")
-    return "test_api_key_12345"
+    # Use the same key as CI environment
+    api_key = os.getenv("INTERNVL_API_KEY", "test_key_for_ci")
+    monkeypatch.setenv("INTERNVL_API_KEY", api_key)
+    return api_key
+
+
+class AsyncIterator:
+    """Helper class to create async iterators for testing."""
+    def __init__(self, items):
+        self.items = iter(items)
+
+    def __aiter__(self):
+        return self
+
+    async def __anext__(self):
+        try:
+            return next(self.items)
+        except StopIteration:
+            raise StopAsyncIteration
+
+
+@pytest.fixture
+def make_async_iterator():
+    """Factory fixture to create async iterators."""
+    return AsyncIterator

@@ -4,8 +4,8 @@ from pydantic import Field
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
-    
-    internvl_api_key: str
+
+    internvl_api_key: str = Field(default="")
     internvl_api_endpoint: str = "https://chat.intern-ai.org.cn/api/v1/chat/completions"
     default_model: str = "internvl3-latest"
     default_temperature: float = 0.7
