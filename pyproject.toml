@@ -1,6 +1,6 @@
 [project]
 name = "termivls"
-version = "1.0.2"
+version = "1.0.3"
 description = "TermiVis: Visual intelligence for your terminal - MCP server for image analysis"
 readme = "README.md"
 license = {text = "MIT"}
