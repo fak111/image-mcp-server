@@ -1,16 +1,16 @@
 [project]
 name = "termivls"
-version = "1.0.0"
+version = "1.0.1"
 description = "TermiVis: Visual intelligence for your terminal - MCP server for image analysis"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "TermiVis Team", email = "termivls@example.com"}
+    {name = "TermiVis Team", email = "info@termivls.com"}
 ]
 keywords = ["mcp", "image-analysis", "terminal", "ai", "claude-code", "visual-intelligence"]
 classifiers = [
     "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers", 
+    "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
@@ -37,9 +37,9 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/your-username/termivls"
-"Bug Reports" = "https://github.com/your-username/termivls/issues"
-"Source" = "https://github.com/your-username/termivls"
+"Homepage" = "https://github.com/zhangbeibei/image-mcp-server"
+"Bug Reports" = "https://github.com/zhangbeibei/image-mcp-server/issues"
+"Source" = "https://github.com/zhangbeibei/image-mcp-server"
 
 [project.scripts]
 termivls = "image_mcp.cli:main"
