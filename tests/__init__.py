@@ -1,0 +1,1 @@
+# Tests for TermiVis image-mcp-server

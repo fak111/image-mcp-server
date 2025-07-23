@@ -1,0 +1,60 @@
+[project]
+name = "termivls"
+version = "1.0.0"
+description = "TermiVis: Visual intelligence for your terminal - MCP server for image analysis"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "TermiVis Team", email = "termivls@example.com"}
+]
+keywords = ["mcp", "image-analysis", "terminal", "ai", "claude-code", "visual-intelligence"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers", 
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Image Processing"
+]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.29.0",
+    "httpx[http2]>=0.27.0",
+    "pillow>=10.0.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.2.0",
+    "python-dotenv>=1.0.0",
+    "typer>=0.9.0",
+    "tenacity>=8.2.0",
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/your-username/termivls"
+"Bug Reports" = "https://github.com/your-username/termivls/issues"
+"Source" = "https://github.com/your-username/termivls"
+
+[project.scripts]
+termivls = "image_mcp.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/image_mcp"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

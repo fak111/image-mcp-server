@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  termivls:
+    build: .
+    container_name: termivls-server
+    environment:
+      - INTERNVL_API_KEY=${INTERNVL_API_KEY}
+    volumes:
+      # Mount Claude Code config directory (adjust path for your OS)
+      - ~/.config/claude-code:/app/.claude-config:rw
+    networks:
+      - termivls-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "termivls", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
+    # Optional: expose port for HTTP mode (future feature)
+    # ports:
+    #   - "8080:8080"
+
+networks:
+  termivls-network:
+    driver: bridge
+
+# Example usage:
+# 1. Set your API key: export INTERNVL_API_KEY="your_api_key_here"
+# 2. Run: docker-compose up -d
+# 3. Check status: docker-compose exec termivls termivls status
